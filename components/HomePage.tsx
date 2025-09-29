@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { CONSULTANT_NAME, CONSULTANT_TITLE, CONTACT_PHONE_DISPLAY, YEAR } from '../constants';
 import type { Page } from '../types';
-import { AnalysisIcon, SearchIcon, NoteIcon } from './common/icons';
+import { SearchIcon, NoteIcon } from './common/icons';
 
 interface HomePageProps {
   setPage: (page: Page) => void;
@@ -9,8 +10,8 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ setPage }) => {
   return (
-    <div className="flex flex-col items-center justify-center text-center min-h-[80vh] bg-cover bg-center rounded-lg p-8" style={{backgroundImage: "url('https://picsum.photos/1200/800?grayscale&blur=2')"}}>
-        <div className="bg-white/80 backdrop-blur-sm p-10 rounded-xl shadow-2xl">
+    <div className="flex flex-col items-center justify-center text-center min-h-[80vh] bg-gradient-to-br from-gray-100 to-teal-100 rounded-lg p-8">
+        <div className="bg-white/80 backdrop-blur-sm p-10 rounded-xl shadow-2xl max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-extrabold text-teal-800 mb-4" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.1)'}}>
                 رفيقك في اللغة العربية
             </h1>
@@ -18,20 +19,15 @@ const HomePage: React.FC<HomePageProps> = ({ setPage }) => {
                 <p className="text-lg">{`إعداد ${CONSULTANT_TITLE}: ${CONSULTANT_NAME}`}</p>
                 <p className="text-md">{`للعام ${YEAR}م | للتواصل: ${CONTACT_PHONE_DISPLAY}`}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <HomeButton
                     icon={<SearchIcon />}
-                    label="التحليل الأدبي"
+                    label="بحث أدبي موثق"
                     onClick={() => setPage('search')}
                 />
                 <HomeButton
                     icon={<NoteIcon />}
-                    label="إضافة نص"
-                    onClick={() => setPage('analysis')}
-                />
-                <HomeButton
-                    icon={<AnalysisIcon />}
-                    label="التحليل"
+                    label="تحليل نصي شامل"
                     onClick={() => setPage('analysis')}
                 />
             </div>
